@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة السعودية خط أحمر</title>
+    <style>
+        :root {
+            --primary-green: #0F5132;
+            --accent-gold: #D4AF37;
+            --pure-white: #FFFFFF;
+            --red-line: #FF0000;
+            --dark-bg: #072214;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--pure-white);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .page {
+            display: none;
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 25px;
+            background: linear-gradient(185deg, rgba(15,81,50,0.4), rgba(7,34,20,0.8));
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .page.active { display: block; }
+        
+        .title-wrapper {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .saudi-txt { color: var(--pure-white); }
+        .red-txt { color: var(--red-line); }
+        
+        .map-container {
+            border: 3px solid var(--red-line);
+            border-radius: 12px;
+            padding: 30px 15px;
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .map-inner-text {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .school-info, .managers-info {
+            text-align: center;
+            border-top: 1px solid rgba(212,175,55,0.3);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .icon-btn {
+            flex: 1;
+            min-width: 130px;
+            background: rgba(15,81,50,0.8);
+            border: 2px solid var(--accent-gold);
+            color: var(--pure-white);
+            padding: 15px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .icon-btn:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            transform: scale(1.03);
+        }
+        .popup-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.4);
+            border-right: 4px solid var(--accent-gold);
+            border-radius: 4px;
+            min-height: 50px;
+            display: none;
+        }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            background-color: var(--accent-gold);
+            color: var(--dark-bg);
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav-btn:disabled {
+            background-color: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid var(--accent-gold);
+        }
+        .action-btn {
+            background-color: var(--red-line);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .wall-item {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-right: 4px solid var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- الصفحة الأولى -->
+    <div id="page1" class="page active">
+        <div class="title-wrapper">
+            <span class="saudi-txt">السعودية</span> <span class="red-txt">خط أحمر</span>
+        </div>
+        <div class="map-container">
+            <div class="map-inner-text">
+                🗺️ [خلفية خريطة السعودية بحدود حمراء البارزة]<br>
+                تضم بداخلها: أجمل صور الملك عبدالعزيز، وخادم الحرمين الملك سلمان، وولي عهده الأمير محمد بن سلمان، وصورة للحرمين الشريفين، ومعالم البنيان الحضاري لعام ٢٠٢٦.
+            </div>
+        </div>
+        <div class="school-info">
+            <h3>ابتدائية أبي محجن الثقفي وتحفيظ القرآن الكريم بحقل</h3>
+            <p>مدير المدرسة: <strong>أ. عادل محمد السيد</strong></p>
+        </div>
+        <div class="managers-info">
+            <h4>منفذو المبادرة:</h4>
+            <p>١. أ. محمد بن عبدالرحمن الشهري</p>
+            <p>٢. أ. عادل محمد السيد</p>
+            <p>٣. أ. هليل جمعه العمراني</p>
+        </div>
+    </div>
+
+    <!-- الصفحة الثانية -->
+    <div id="page2" class="page">
+        <div class="title-wrapper"><span class="saudi-txt">أركان</span> <span class="red-txt">المبادرة</span></div>
+        <p style="text-align:center; color:var(--accent-gold);">اضغط على الأيقونات من اليمين إلى اليسار لاستعراض المحتوى:</p>
+        <div class="icon-row">
+            <div class="icon-btn" onclick="showInfo('رسالة المبادرة: غرس قيم الولاء والانتماء المطلق لله ثم لولاة الأمر والوطن وحماية عقول الطلاب من الأفكار المنحرفة والشائعات.')">١. رسالة المبادرة</div>
+            <div class="icon-btn" onclick="showInfo('الهدف العام للمبادرة: تعزيز وتسييخ قيم المواطنة الحقة والتلاحم البنيوي بين القيادة والشعب وإبراز وجه المملكة الحضاري المشرق.')">٢. الهدف العام للمبادرة</div>
+            <div class="icon-btn" onclick="showInfo('الهدف التفصيلي: ١. تعميق حب ولاة الأمر والوفاء لهم، ٢. التحصين الفكري الفعال ضد الشائعات، ٣. تعريف مجتمع المدرسة بمنجزات ٢٠٢٦ الحضارية.')">٣. الأهداف التفصيلية</div>
+            <div class="icon-btn" onclick="showInfo('التوصيات: تكثيف البرامج الوطنية التوعوية الإلكترونية وتضمينها بشكل مستدام في الأنشطة المدرسية اللاصفية الشاملة.')">٤. توصيات المبادرة</div>
+            <div class="icon-btn" onclick="showInfo('نتائج المبادرة: تحقيق عهد ولاء شامل بنسبة كاملة من الطلاب والمنسوبين وبناء حائط صد رقمي فكري واعٍ وصامد.')">٥. نتائج المبادرة</div>
+        </div>
+        <div id="infoDisplay" class="popup-box"></div>
+    </div>
+
+    <!-- الصفحة الثالثة -->
+    <div id="page3" class="page">
+        <div class="title-wrapper"><span class="saudi-txt">الفيديو</span> <span class="red-txt">التعريفي</span></div>
+        <div style="background:#000; padding:60px 10px; text-align:center; border:1px solid var(--accent-gold); border-radius:8px;">
+            <p style="color:var(--accent-gold); font-size:1.2rem;">🎬 [مساحة فيديو تعريفي محترف]</p>
+            <div style="padding:15px; text-align:right; font-size:0.95rem; line-height:1.6;">
+                <p><strong>محتوى العرض المرئي:</strong> الولاء لله ثم ولاة الأمر ثم الوطن.</p>
+                <p><strong>الآيات والأحاديث:</strong> يتضمن نصوصاً شرعية تؤصل الطاعة والسمع والأمن والاستقرار البنيوي.</p>
+                <p><strong>بيانات العرض:</strong> مبادرة (السعودية خط أحمر) - ابتدائية أبي محجن الثقفي وتحفيظ القرآن الكريم بحقل.</p>
+                <p><strong>المنفذون:</strong> أ. محمد الشهري، أ. عادل السيد، أ. هليل العمراني.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- الصفحة الرابعة -->
+    <div id="page4" class="page">
+        <div class="title-wrapper"><span class="saudi-txt">وثيقة</span> <span class="red-txt">العهد</span></div>
+        <div style="text-align:center;">
+            <p style="font-size:1.3rem; color:var(--accent-gold);">﴿رَبِّ اجْعَلْ هَٰذَا الْبَلَدَ آمِنًا﴾</p>
+            <p>أكتب اسمكِ الكريم للتوقيع وإعلان العهد والولاء للوطن والقيادة وصد كل الشائعات المغرضة.</p>
+            <input type="text" id="signerName" class="input-field" placeholder="اكتبي اسمكِ للتوقيع...">
+            <button class="action-btn" onclick="signContract()">نعم، أتعهد (اضغط هنا لتوقيعك)</button>
+            <p id="signStatus" style="margin-top:15px; color:var(--accent-gold); font-weight:bold;"></p>
+        </div>
+    </div>
+
+    <!-- الصفحة الخامسة -->
+    <div id="page5" class="page">
+        <div class="title-wrapper"><span class="saudi-txt">جدارية</span> <span class="red-txt">الوطن</span></div>
+        <div>
+            <h4>شارك حبّك واعتزازك بالمملكة وقادتها:</h4>
+            <input type="text" id="visitorName" class="input-field" placeholder="الاسم...">
+            <textarea id="visitorMsg" class="input-field" rows="3" placeholder="رسالة فخر أو اعتزاز لوطننا العظيم وقادتنا..."></textarea>
+            <button class="action-btn" style="background-color:var(--primary-green); border:1px solid var(--accent-gold);" onclick="postToWall()">أرسل مشاركتي للاعتماد</button>
+            <p style="font-size:0.8rem; color:#aaa; margin-top:5px;">*تظهر المشاركة في الجدارية بعد اعتماد المعلمة والجهة المختصة مأمونيتها.</p>
+            
+            <h4 style="margin-top:20px; border-bottom:1px solid var(--accent-gold); padding-bottom:5px;">المشاركات المعتمدة:</h4>
+            <div id="wallContainer">
+                <div class="wall-item"><strong>إدارة المدرسة</strong>: حفظ الله جنودنا المرابطين على الحدود وحفظ قادتنا وبلادنا آمنة مستقرة.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-controls">
+        <button id="prevBtn" class="nav-btn" onclick="changePage(-1)" disabled>السابقة ←</button>
+        <button id="nextBtn" class="nav-btn" onclick="changePage(1)">التالية →</button>
+    </div>
+</div>
+
+<script>
+    let currentPage = 1;
+    const totalPages = 5;
+
